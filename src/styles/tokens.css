@@ -1,0 +1,56 @@
+/* Design system color tokens — use only these variables in components */
+:root {
+  /* Primary (purple/indigo scale) */
+  --color-primary-50: #f5f3ff;
+  --color-primary-100: #ede9fe;
+  --color-primary-200: #ddd6fe;
+  --color-primary-300: #c4b5fd;
+  --color-primary-400: #a78bfa;
+  --color-primary-500: #8b5cf6;
+  --color-primary-600: #7c3aed;
+  --color-primary-700: #6d28d9;
+  --color-primary-800: #5b21b6;
+  --color-primary-900: #4c1d95;
+
+  --color-primary: var(--color-primary-600);
+  --color-primary-foreground: #ffffff;
+
+  /* Neutral (grayscale) */
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-500: #64748b;
+  --color-neutral-600: #475569;
+  --color-neutral-700: #334155;
+  --color-neutral-800: #1f2937;
+  --color-neutral-900: #0f1724;
+
+  /* Semantic aliases */
+  --color-bg: var(--color-neutral-50);
+  --color-surface: #ffffff;
+  --color-border: var(--color-neutral-200);
+  --color-text: var(--color-neutral-700);
+  --color-text-high: var(--color-neutral-900);
+
+  /* Status colors */
+  --color-success-500: #16a34a;
+  --color-warning-500: #f59e0b;
+  --color-danger-500: #ef4444;
+
+  /* Shadows / overlay */
+  --color-shadow: rgba(2, 6, 23, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0b1020;
+    --color-surface: #0f1724;
+    --color-border: rgba(255, 255, 255, 0.06);
+    --color-text: #cbd5e1;
+    --color-text-high: #ffffff;
+    --color-shadow: rgba(0, 0, 0, 0.6);
+    --color-primary: var(--color-primary-400);
+  }
+}
