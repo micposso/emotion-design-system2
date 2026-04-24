@@ -1,17 +1,20 @@
 import React from 'react'
+import Button from '../button/Button'
 import './DownloadButton.css'
 
 type Props = {
   label?: string
   href?: string
   filename?: string
+  disabled?: boolean
 }
 
-// Level: Atom | Reason: Simple, single-purpose control with no dependencies.
+// Level: Atom | Reason: Simple, single-purpose control implemented using the canonical Button atom.
 export default function DownloadButton({
   label = 'Download',
   href,
-  filename = 'download'
+  filename = 'download',
+  disabled = false
 }: Props) {
   const handleDownload = () => {
     if (!href) return
@@ -24,14 +27,9 @@ export default function DownloadButton({
   }
 
   return (
-    <button
-      type="button"
-      className="download-button download-button--primary"
-      onClick={handleDownload}
-      aria-label={label}
-    >
+    <Button variant={disabled ? 'disabled' : 'primary'} onClick={handleDownload} aria-label={label} disabled={disabled}>
       <svg
-        className="download-button__icon"
+        className="ds-button__icon"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -42,6 +40,6 @@ export default function DownloadButton({
         <path d="M21 21H3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
       <span>{label}</span>
-    </button>
+    </Button>
   )
 }

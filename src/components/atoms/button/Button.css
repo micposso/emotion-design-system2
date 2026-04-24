@@ -1,0 +1,50 @@
+.ds-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, transform 0.06s ease, background-color 0.12s ease;
+  border: 1px solid transparent;
+}
+
+.ds-button__icon {
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+}
+
+/* Primary: filled brand */
+.ds-button--primary {
+  background: var(--color-primary-base);
+  color: var(--color-text-on-dark);
+  border-color: transparent;
+}
+.ds-button--primary:hover { box-shadow: var(--shadow-card); transform: translateY(-1px); }
+
+/* Secondary: surface with border */
+.ds-button--secondary {
+  background: var(--color-surface);
+  color: var(--color-text-main);
+  border-color: var(--color-border);
+}
+.ds-button--secondary:hover { box-shadow: 0 4px 10px rgba(2,6,23,0.03); transform: translateY(-1px); }
+
+/* Disabled: visually neutral and non-interactive */
+.ds-button--disabled,
+.ds-button[disabled] {
+  background: var(--color-bg-card);
+  color: var(--color-text-muted);
+  border-color: var(--color-border);
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+  transform: none;
+}
+
+.ds-button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-primary-base) 20%, transparent);
+  outline-offset: 3px;
+}

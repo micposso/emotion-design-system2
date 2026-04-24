@@ -1,56 +1,72 @@
 /* Design system color tokens — use only these variables in components */
 :root {
-  /* Primary (purple/indigo scale) */
-  --color-primary-50: #f5f3ff;
-  --color-primary-100: #ede9fe;
-  --color-primary-200: #ddd6fe;
-  --color-primary-300: #c4b5fd;
-  --color-primary-400: #a78bfa;
-  --color-primary-500: #8b5cf6;
-  --color-primary-600: #7c3aed;
-  --color-primary-700: #6d28d9;
-  --color-primary-800: #5b21b6;
-  --color-primary-900: #4c1d95;
+  /* --- Primary Colors (Emerald/Green Scale) --- */
+  --color-primary-dark: #064e3b;      /* Deep Forest - Main buttons/Cards */
+  --color-primary-base: #10b981;      /* Emerald - Progress/Active states */
+  --color-primary-light: #dcfce7;     /* Pale Mint - Hover/Subtle backgrounds */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
 
-  --color-primary: var(--color-primary-600);
-  --color-primary-foreground: #ffffff;
+  /* --- Neutrals --- */
+  --color-bg-main: #f8fafc;           /* Soft off-white background */
+  --color-bg-card: #ffffff;           /* Pure white card backgrounds */
+  --color-border: #e2e8f0;            /* Subtle separators */
 
-  /* Neutral (grayscale) */
-  --color-neutral-50: #f8fafc;
-  --color-neutral-100: #f1f5f9;
-  --color-neutral-200: #e2e8f0;
-  --color-neutral-300: #cbd5e1;
-  --color-neutral-400: #94a3b8;
-  --color-neutral-500: #64748b;
-  --color-neutral-600: #475569;
-  --color-neutral-700: #334155;
-  --color-neutral-800: #1f2937;
-  --color-neutral-900: #0f1724;
+  /* --- Typography --- */
+  --color-text-main: #0f172a;         /* Near black for headings */
+  --color-text-muted: #64748b;        /* Slate grey for subtext/labels */
+  --color-text-on-dark: #ffffff;      /* White text for primary buttons */
 
-  /* Semantic aliases */
-  --color-bg: var(--color-neutral-50);
-  --color-surface: #ffffff;
-  --color-border: var(--color-neutral-200);
-  --color-text: var(--color-neutral-700);
-  --color-text-high: var(--color-neutral-900);
+  /* --- Typography Scale --- */
+  --font-family: 'Inter', system-ui, sans-serif;
+  --font-size-xs: 0.75rem;            /* 12px - Labels/Captions */
+  --font-size-sm: 0.875rem;           /* 14px - Body/Menu */
+  --font-size-md: 1rem;               /* 16px - Standard */
+  --font-size-lg: 1.25rem;            /* 20px - Sub-headers */
+  --font-size-xl: 2rem;               /* 32px - Metric numbers */
+  --font-size-display: 2.5rem;        /* 40px - Large dashboard titles */
 
-  /* Status colors */
-  --color-success-500: #16a34a;
-  --color-warning-500: #f59e0b;
-  --color-danger-500: #ef4444;
+  /* --- Spacing & Radius --- */
+  --space-xs: 0.5rem;                 /* 8px */
+  --space-sm: 1rem;                   /* 16px */
+  --space-md: 1.5rem;                 /* 24px */
+  --space-lg: 2rem;                   /* 32px */
+  
+  --radius-sm: 8px;                   /* Small buttons/inputs */
+  --radius-md: 16px;                  /* Standard cards */
+  --radius-lg: 24px;                  /* Main dashboard containers */
+  --radius-pill: 9999px;              /* Fully rounded badges/buttons */
 
-  /* Shadows / overlay */
+  /* --- Shadows & Effects --- */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+
+  /* --- Compatibility aliases (existing tokens) --- */
+  --color-primary: var(--color-primary-base);
+  --color-primary-foreground: var(--color-text-on-dark);
+
+  --color-bg: var(--color-bg-main);
+  --color-surface: var(--color-bg-card);
+  --color-text: var(--color-text-main);
+  --color-text-high: var(--color-text-main);
+  --color-text-muted: var(--color-text-muted);
+
+  --color-success-500: var(--color-success);
+  --color-warning-500: var(--color-warning);
+  --color-danger-500: var(--color-danger);
+
   --color-shadow: rgba(2, 6, 23, 0.08);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #0b1020;
-    --color-surface: #0f1724;
+    --color-bg-main: #0b1020;
+    --color-bg-card: #0f1724;
     --color-border: rgba(255, 255, 255, 0.06);
-    --color-text: #cbd5e1;
-    --color-text-high: #ffffff;
+    --color-text-main: #cbd5e1;
+    --color-text-on-dark: #ffffff;
     --color-shadow: rgba(0, 0, 0, 0.6);
-    --color-primary: var(--color-primary-400);
+    --color-primary: var(--color-primary-light);
   }
 }
