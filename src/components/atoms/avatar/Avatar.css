@@ -1,0 +1,18 @@
+.a-avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+}
+.a-avatar--sm {
+  width: 2rem;
+  height: 2rem;
+}
+.a-avatar--md {
+  width: 3rem;
+  height: 3rem;
+}
+.a-avatar--lg {
+  width: 4rem;
+  height: 4rem;
+}

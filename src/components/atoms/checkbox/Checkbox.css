@@ -1,0 +1,15 @@
+.a-checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  cursor: pointer;
+}
+.a-checkbox__input {
+  accent-color: var(--color-primary-500);
+  width: 1rem;
+  height: 1rem;
+}
+.a-checkbox__label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+}

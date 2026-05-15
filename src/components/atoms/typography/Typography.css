@@ -1,0 +1,16 @@
+.a-typography {
+  color: var(--color-text-primary);
+  font-family: var(--font-family-base);
+  margin: 0;
+}
+.a-typography--h1 { font-size: var(--font-size-display); font-weight: var(--font-weight-bold); line-height: var(--line-height-tight); }
+.a-typography--h2 { font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); line-height: var(--line-height-tight); }
+.a-typography--h3 { font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); line-height: var(--line-height-tight); }
+.a-typography--h4 { font-size: var(--font-size-md); font-weight: var(--font-weight-bold); line-height: var(--line-height-tight); }
+.a-typography--h5 { font-size: var(--font-size-sm); font-weight: var(--font-weight-bold); line-height: var(--line-height-tight); }
+.a-typography--h6 { font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); line-height: var(--line-height-tight); }
+.a-typography--body { font-size: var(--font-size-md); font-weight: var(--font-weight-normal); line-height: var(--line-height-normal); }
+.a-typography--body-sm { font-size: var(--font-size-sm); font-weight: var(--font-weight-normal); line-height: var(--line-height-normal); }
+.a-typography--body-lg { font-size: var(--font-size-lg); font-weight: var(--font-weight-normal); line-height: var(--line-height-normal); }
+.a-typography--caption { font-size: var(--font-size-xs); font-weight: var(--font-weight-normal); line-height: var(--line-height-normal); }
+.a-typography--overline { font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); text-transform: uppercase; letter-spacing: 0.1em; }

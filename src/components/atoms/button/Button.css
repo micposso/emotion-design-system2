@@ -1,50 +1,131 @@
 .ds-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-xs);
-  padding: var(--space-xs) var(--space-sm);
+  padding: var(--padding-btn-md-y) var(--padding-btn-md-x);
   border-radius: var(--radius-sm);
+  font-family: var(--font-family);
   font-weight: 500;
+  font-size: var(--font-size-sm);
   cursor: pointer;
-  transition: box-shadow 0.15s ease, transform 0.06s ease, background-color 0.12s ease;
+  transition: box-shadow 0.15s ease, transform 0.06s ease, background-color 0.12s ease, opacity 0.12s ease;
   border: 1px solid transparent;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* Sizes */
+.ds-button--sm {
+  font-size: var(--font-size-xs);
+  padding: var(--padding-btn-sm-y) var(--padding-btn-sm-x);
+  border-radius: var(--radius-sm);
+}
+.ds-button--lg {
+  font-size: var(--font-size-md);
+  padding: var(--padding-btn-lg-y) var(--padding-btn-lg-x);
+  border-radius: var(--radius-md);
 }
 
 .ds-button__icon {
   width: 1rem;
   height: 1rem;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-/* Primary: filled brand */
+.ds-button__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Primary */
 .ds-button--primary {
   background: var(--color-primary-base);
   color: var(--color-text-on-dark);
   border-color: transparent;
 }
-.ds-button--primary:hover { box-shadow: var(--shadow-card); transform: translateY(-1px); }
+.ds-button--primary:hover:not([disabled]) { background: var(--color-primary-dark); box-shadow: var(--shadow-card); transform: translateY(-1px); }
+.ds-button--primary:active:not([disabled]) { transform: translateY(0); box-shadow: none; }
 
-/* Secondary: surface with border */
+/* Secondary */
 .ds-button--secondary {
-  background: var(--color-surface);
+  background: var(--color-bg-card);
   color: var(--color-text-main);
   border-color: var(--color-border);
 }
-.ds-button--secondary:hover { box-shadow: 0 4px 10px rgba(2,6,23,0.03); transform: translateY(-1px); }
+.ds-button--secondary:hover:not([disabled]) { background: var(--color-bg-main); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+.ds-button--secondary:active:not([disabled]) { transform: translateY(0); box-shadow: none; }
 
-/* Disabled: visually neutral and non-interactive */
+/* Danger */
+.ds-button--danger {
+  background: var(--color-danger);
+  color: #fff;
+  border-color: transparent;
+}
+.ds-button--danger:hover:not([disabled]) { opacity: 0.88; box-shadow: var(--shadow-card); transform: translateY(-1px); }
+.ds-button--danger:active:not([disabled]) { transform: translateY(0); box-shadow: none; }
+
+/* Ghost */
+.ds-button--ghost {
+  background: transparent;
+  color: var(--color-primary-base);
+  border-color: var(--color-primary-base);
+}
+.ds-button--ghost:hover:not([disabled]) { background: var(--color-primary-light); transform: translateY(-1px); }
+.ds-button--ghost:active:not([disabled]) { transform: translateY(0); }
+
+/* Link */
+.ds-button--link {
+  background: transparent;
+  color: var(--color-primary-base);
+  border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.ds-button--link:hover:not([disabled]) { color: var(--color-primary-dark); }
+
+/* Disabled */
 .ds-button--disabled,
 .ds-button[disabled] {
   background: var(--color-bg-card);
   color: var(--color-text-muted);
   border-color: var(--color-border);
   cursor: not-allowed;
-  opacity: 0.7;
+  opacity: 0.55;
   box-shadow: none;
   transform: none;
+  pointer-events: none;
 }
 
+/* Loading */
+.ds-button--loading {
+  cursor: wait;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.ds-button__spinner {
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: ds-spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes ds-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Focus ring */
 .ds-button:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--color-primary-base) 20%, transparent);
+  outline: 3px solid color-mix(in srgb, var(--color-primary-base) 40%, transparent);
   outline-offset: 3px;
 }
