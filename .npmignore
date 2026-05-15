@@ -1,0 +1,10 @@
+src/
+public/
+.github/
+*.config.ts
+*.config.js
+tsconfig*.json
+index.html
+prompts.md
+README.md
+.gitignore

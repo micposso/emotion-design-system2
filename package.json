@@ -1,17 +1,43 @@
 {
-  "name": "emotion-design-sytem-2",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@micposso/emotion-design-system",
+  "version": "1.0.0",
+  "description": "A React + TypeScript component library built on atomic design principles — tokens, BEM, and zero magic numbers.",
+  "author": "micposso",
+  "license": "MIT",
+  "homepage": "https://github.com/micposso/emotion-design-system2#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/micposso/emotion-design-system2.git"
+  },
+  "keywords": ["react", "typescript", "design-system", "components", "ui", "atomic-design"],
   "type": "module",
+  "main": "./dist/emotion-design-system.umd.js",
+  "module": "./dist/emotion-design-system.es.js",
+  "types": "./dist/types/lib.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/emotion-design-system.es.js",
+      "require": "./dist/emotion-design-system.umd.js",
+      "types": "./dist/types/lib.d.ts"
+    },
+    "./style.css": "./dist/emotion-design-system.css"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:lib": "tsc -p tsconfig.lib.json && vite build --config vite.lib.config.ts",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build:lib"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "dependencies": {
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
     "react-router-dom": "^7.15.1"
   },
   "devDependencies": {
@@ -25,6 +51,8 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "gh-pages": "^6.3.0",
     "globals": "^17.4.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.0",
     "vite": "^8.0.4"

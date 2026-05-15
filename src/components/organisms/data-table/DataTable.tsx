@@ -1,6 +1,4 @@
 import React from 'react';
-import Badge from '../../atoms/badge/Badge';
-import Typography from '../../atoms/typography/Typography';
 import './DataTable.css';
 
 type Column<T> = {
