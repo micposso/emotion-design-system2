@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-const AVATAR_IMG = 'https://plus.unsplash.com/premium_photo-1720601645664-98b6b06efeca?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import './styles/tokens.css';
 
@@ -23,21 +21,27 @@ import Footer from './components/organisms/footer/Footer';
 import Sidebar from './components/organisms/sidebar/Sidebar';
 import DataTable from './components/organisms/data-table/DataTable';
 import Form from './components/organisms/form/Form';
+import SiteNav from './components/organisms/site-nav/SiteNav';
+import DocsPage from './pages/DocsPage';
+import ReleasesPage from './pages/ReleasesPage';
+
+const AVATAR_IMG = 'https://plus.unsplash.com/premium_photo-1720601645664-98b6b06efeca?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 
 function App() {
   const [count, setCount] = useState(0)
 
-  return (
+  const DesignSystemContent = (
     <>
-      <main className="ds-page">
-        <div className="ds-container">
-          <header className="ds-page-header">
-            <Typography as="h1" variant="h1">Emotion Design System</Typography>
-            <Typography as="p" variant="body-sm">V1.0</Typography>
-            <Typography as="p" variant="body-sm" className="ds-page-header__desc">
-              A React + TypeScript component system built on atomic design principles — tokens, BEM, and zero magic numbers.
-            </Typography>
-          </header>
+      <header className="ds-page-header">
+        <div className="ds-page-header__title-row">
+          <Typography as="h1" variant="h1">Emotion Design System</Typography>
+          <Typography as="p" variant="body-sm">V1.0</Typography>
+          <SiteNav />
+        </div>
+        <Typography as="p" variant="body-sm" className="ds-page-header__desc">
+          A React + TypeScript component system built on atomic design principles — tokens, BEM, and zero magic numbers.
+        </Typography>
+      </header>
         {/* ATOMS */}
         <section className="ds-section">
           <Typography as="h2" variant="h2">Atoms</Typography>
@@ -272,9 +276,19 @@ function App() {
             <Footer />
           </div>
         </section>
-        </div>
-      </main>
     </>
+  )
+
+  return (
+    <main className="ds-page">
+      <div className="ds-container">
+        <Routes>
+          <Route path="/" element={DesignSystemContent} />
+          <Route path="/docs" element={<DocsPage />} />
+          <Route path="/releases" element={<ReleasesPage />} />
+        </Routes>
+      </div>
+    </main>
   )
 }
 
